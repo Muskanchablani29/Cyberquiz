@@ -11,9 +11,9 @@ import {
     FaLinkedin,
     FaDiscord 
 } from 'react-icons/fa';
-import quizLogo from '../Images/Quiz.jpg';
-import studyImage from '../Images/Quiz.jpg';
-import learnImage from '../Images/Quiz.jpg';
+import quizLogo from '../Images/Quiz.png';
+import studyImage from '../Images/Quiz.png';
+import learnImage from '../Images/Quiz.png';
 
 const Login = () => {
     const [isSignUpMode, setIsSignUpMode] = useState(false);
