@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+import Navbar from './components/Navbar';
+import Login from './components/Login';
+import EasyQuiz from './Pages/EasyQuiz';
+import MediumQuiz from './Pages/MediumQuiz';
+import HardQuiz from './Pages/HardQuiz';
+import login from './components/Login';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const { user } = useAuth();
+
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={user ? <EasyQuiz /> : <Login />} />
+                <Route path="/easy" element={<EasyQuiz />} />
+                <Route path="/medium" element={<MediumQuiz />} />
+                <Route path="/hard" element={<HardQuiz />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
